@@ -1,0 +1,5 @@
+Main.class
+minimax\MiniMaxAlphaBeta.class
+board\Board.class
+search\MinimaxSearch.class
+board\Mark.class
