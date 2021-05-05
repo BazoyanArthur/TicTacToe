@@ -2,14 +2,10 @@ import board.Board;
 import board.Mark;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
-import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 import minimax.MiniMaxAlphaBeta;
-import search.MinimaxSearch;
+import search.Minimax;
 
-import javax.swing.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.util.Scanner;
 
 
@@ -96,7 +92,7 @@ public boolean handleKeyPressed(char ch) {
     }
 
     private static void playAI() {
-        int[] move = MinimaxSearch.getBestMoveForO(board);
+        int[] move = Minimax.getBestMoveForO(board);
         int row = move[0];
         int col = move[1];
         board.placeMark(row, col);

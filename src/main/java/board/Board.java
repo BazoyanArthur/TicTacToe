@@ -4,15 +4,11 @@ import static board.Mark.*;
 
 public class Board {
 
-    private Mark[][] board;
+    private final Mark[][] board;
     private Mark winningMark;
     private final int BOARD_WIDTH = 3;
     private boolean crossTurn, gameOver;
     private int availableMoves = BOARD_WIDTH * BOARD_WIDTH;
-    // this is the state describing the positions of the board
-    // positive means the max player is in favor
-    // negative means the min player in in favor
-    private int state = 0;
 
     public Board() {
         board = new Mark[BOARD_WIDTH][BOARD_WIDTH];
@@ -227,7 +223,6 @@ public class Board {
         return 0;
     }
 
-
     private Mark calcWinner(int rowSum) {
         int Xwin = X.getMark() * BOARD_WIDTH;
         int Owin = O.getMark() * BOARD_WIDTH;
@@ -269,7 +264,6 @@ public class Board {
         }
         board[row][column] = newMark;
     }
-
 
     public boolean isCrossTurn() {
         return crossTurn;

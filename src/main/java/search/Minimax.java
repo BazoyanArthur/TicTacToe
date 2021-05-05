@@ -5,10 +5,7 @@ import board.Board;
 import static board.Mark.*;
 
 
-public class MinimaxSearch {
-
-    private static final int MAX_DEPTH = 12;
-
+public class Minimax {
 
     public static int maxValue(Board board){
         int boardVal = board.evaluateBoard();
