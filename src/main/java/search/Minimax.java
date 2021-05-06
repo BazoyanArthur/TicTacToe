@@ -6,10 +6,13 @@ import static board.Mark.*;
 
 
 public class Minimax {
+    // for easier difficulties lower the max depth to 2, higher the depth is, higher the difficulty
+    public static int MAX_DEPTH = 12;
 
-    public static int maxValue(Board board){
+    public static int maxValue(Board board, int depth){
         int boardVal = board.evaluateBoard();
-        if (Math.abs(boardVal) == 10 || !board.anyMovesAvailable()) {
+        if (Math.abs(boardVal) == 10 || depth == 0
+                || !board.anyMovesAvailable()) {
             return boardVal;
         }
 
@@ -18,7 +21,7 @@ public class Minimax {
             for (int col = 0; col < board.getWidth(); col++) {
                 if (!board.isTileMarked(row, col)) {
                     board.setMarkAt(row, col, X);
-                    highestVal = Math.max(highestVal, minValue(board));
+                    highestVal = Math.max(highestVal, minValue(board, depth - 1));
                     board.setMarkAt(row, col, BLANK);
                 }
             }
@@ -26,9 +29,10 @@ public class Minimax {
         return highestVal;
     }
 
-    public static int minValue(Board board){
+    public static int minValue(Board board, int depth){
         int boardVal = board.evaluateBoard();
-        if (Math.abs(boardVal) == 10 || !board.anyMovesAvailable()) {
+        if (Math.abs(boardVal) == 10 || depth == 0
+                || !board.anyMovesAvailable()) {
             return boardVal;
         }
 
@@ -37,7 +41,7 @@ public class Minimax {
             for (int col = 0; col < board.getWidth(); col++) {
                 if (!board.isTileMarked(row, col)) {
                     board.setMarkAt(row, col, O);
-                    lowestVal = Math.min(lowestVal, maxValue(board));
+                    lowestVal = Math.min(lowestVal, maxValue(board, depth - 1 ));
                     board.setMarkAt(row, col, BLANK);
                 }
             }
@@ -54,7 +58,7 @@ public class Minimax {
             for (int col = 0; col < board.getWidth(); col++) {
                 if (!board.isTileMarked(row, col)) {
                     board.setMarkAt(row, col, O);
-                    int moveValue = maxValue(board);
+                    int moveValue = maxValue(board, MAX_DEPTH);
                     board.setMarkAt(row, col, BLANK);
                     if (moveValue < bestValue) {
                         bestMove[0] = row;
@@ -66,6 +70,4 @@ public class Minimax {
         }
         return bestMove;
     }
-
-
 }
