@@ -3,7 +3,6 @@ import board.Mark;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import minimax.MiniMaxAlphaBeta;
 import search.Minimax;
 
 import java.util.Scanner;
