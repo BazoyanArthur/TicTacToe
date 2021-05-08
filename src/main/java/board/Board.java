@@ -111,9 +111,9 @@ public class Board {
         int rowSum = 0;
         int bWidth = BOARD_WIDTH;
         int Xwin = X.getMark() * bWidth;
-        int Xfork = X.getMark() * 4;
+        int Xfork = X.getMark() * 4 + (2 * BLANK.getMark());
         int Owin = O.getMark() * bWidth;
-        int Ofork = X.getMark() * 4;
+        int Ofork = O.getMark() * 4 + (2 * BLANK.getMark());
         int XwinInNext = X.getMark() * 2 + BLANK.getMark();
         int OwinInNext = O.getMark() * 2 + BLANK.getMark();
 

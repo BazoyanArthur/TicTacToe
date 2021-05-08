@@ -2,8 +2,9 @@
  Implementation of Tic Tac Toe with MiniMax algorithm
 
 Here the user is playing as the 'X' player, and the computer is playing as the 'O' player.
-The board has a utility which describes which of the players is closer to the winning. The utility for win is +/- 10.
-The utility for having a fork  is +/- 6 and the utility for having 2 marks in a row is +/- 2.
+The board has a utility which describes which of the players is closer to the winning.
+The utility for a win is +/- 10.
+The utility for having a fork  is +/-6, and the utility for having 2 marks in a row is +/- 2.
 
 The user can input the 'X' in the desired cell by choosing the appropriate letter. The assignment is as follows.
 
